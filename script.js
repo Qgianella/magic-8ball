@@ -1,23 +1,29 @@
-var magicBall = {};
-magicBall.answer = ["Outlook good", "Yes", "try again", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no"];
-var question =prompt ("Ask me anything and I shall respond..");
+$(document).ready(function() {
 
-//define the method
-magicBall.askQuestion = function(question) {
+  var magicBall = {};
+  magicBall.answer = ["Outlook good", "Yes", "try again", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no"];
+  var question = prompt("Ask a YES/NO question and I shall respond..");
 
-  //create a random number
-  var randomNumber = Math.random();
+  //define the method
+  magicBall.askQuestion = function(question) {
 
-  //Make random Number between 0 and the nomber of items in array
-  var randomNumberArray = randomNumber * this.answer.length;
+    //create a random number
+    var randomNumber = Math.random();
 
-  //Round down the number to be a whole Number
-  var randomIndex = Math.floor(randomNumberArray);
+    //Make random Number between 0 and the nomber of items in array
+    var randomNumberArray = randomNumber * this.answer.length;
 
-  //Use that number to index a random number from the array
-  var randomAnswer = this.answer[randomIndex];
-  console.log(question);
-  console.log(randomAnswer);
-};
+    //Round down the number to be a whole Number
+    var randomIndex = Math.floor(randomNumberArray);
 
-magicBall.askQuestion(question);
+    //Use that number to index a random number from the array
+    var randomAnswer = this.answer[randomIndex];
+    //console.log(question);
+    console.log(randomAnswer);
+  };
+
+  magicBall.askQuestion(question);
+
+  $("#questionbutton").click(question);
+
+});
