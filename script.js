@@ -1,5 +1,9 @@
+
+
 $(document).ready(function() {
 
+
+  $("#answer").hide();
   var magicBall = {};
   magicBall.listOfAnswers = ["Outlook good", "Yes", "try again", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no"];
 
@@ -7,6 +11,8 @@ $(document).ready(function() {
   //define the method
   magicBall.askQuestion = function(question) {
 
+    $("#8ball").attr("src", "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/answerside.png");
+    $("#answer").fadeIn(4000);
     //create a random number
     var randomNumber = Math.random();
 
@@ -21,15 +27,28 @@ $(document).ready(function() {
 
     $("#answer").text(randomAnswer);
 
+
+
     console.log(question);
     console.log(randomAnswer);
   };
 
   var onClick = function() {
-    var question = prompt("Ask a YES/NO question and I shall respond..");
-    magicBall.askQuestion(question);
+    $("#answer").hide();
+
+    $("#8ball").attr("src", "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/8side.png");
+
+    //wait half a second before showing prompt:
+    setTimeout(
+      function() {
+        //show prompt
+        var question = prompt("Ask a YES/NO question and I shall respond..");
+        magicBall.askQuestion(question);
+      }, 500);
+
   };
 
   $("#questionButton").click(onClick);
+
 
 });
