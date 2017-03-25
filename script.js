@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   var magicBall = {};
   magicBall.answer = ["Outlook good", "Yes", "try again", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no"];
-  var question = prompt("Ask a YES/NO question and I shall respond..");
+
 
   //define the method
   magicBall.askQuestion = function(question) {
@@ -22,8 +22,11 @@ $(document).ready(function() {
     console.log(randomAnswer);
   };
 
-  magicBall.askQuestion(question);
+  var onClick = function() {
+    magicBall.askQuestion(question);
+    var question = prompt("Ask a YES/NO question and I shall respond..");
+  };
 
-  $("#questionbutton").click(question);
+  $("#questionButton").click(onClick);
 
 });
